@@ -566,7 +566,7 @@ console.log('%cPress T to toggle theme, C to chat with Cipher', 'color: #ff00ff;
             wave.style.animationDuration = '0.6s';
         });
     });
-});
+;
 
 // Gaming buttons pulse on hover
 document.querySelectorAll('.hobby-gaming').forEach(gaming => {
