@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="header-top">
+        <div class="header-content">
+            <h1 class="logo">YOUR NAME</h1>
+            <nav class="nav">
+                <button class="nav-btn active" data-section="dashboard">Dashboard</button>
+                <button class="nav-btn" data-section="project">Project</button>
+                <button class="nav-btn" data-section="hobbies">Hobbies</button>
+            </nav>
+            <div class="header-controls">
+                <button class="theme-toggle" title="Toggle theme (Press T)">🌙</button>
+                <button class="help-button" title="Keyboard shortcuts (Press ?)">❓</button>
+                <div class="profile-icon">🎨</div>
+            </div>
+        </div>
+        <div class="header-line"></div>
+    </div>
+
+    <!-- Cipher Chat Bubble -->
+    <div class="cipher-chat hidden">
+        <div class="chat-header">
+            <span>Cipher</span>
+            <button class="chat-close">&times;</button>
+        </div>
+        <div class="chat-messages">
+            <div class="message cipher-message">Hey! Press C again to close me 😎</div>
+        </div>
+        <input type="text" class="chat-input" placeholder="Talk to me...">
+    </div>
+
+    <!-- Help Menu -->
+    <div class="help-overlay hidden">
+        <div class="help-modal">
+            <h2>⌨️ Keyboard Shortcuts</h2>
+            <div class="shortcuts-list">
+                <div class="shortcut">
+                    <kbd>T</kbd> - Toggle dark/light theme
+                </div>
+                <div class="shortcut">
+                    <kbd>C</kbd> - Chat with Cipher mascot
+                </div>
+                <div class="shortcut">
+                    <kbd>?</kbd> - Show this help menu
+                </div>
+                <div class="shortcut">
+                    <kbd>←</kbd> <kbd>→</kbd> - Navigate sections
+                </div>
+                <div class="shortcut">
+                    <kbd>Esc</kbd> - Close any dialog
+                </div>
+            </div>
+            <button class="close-help">Close</button>
+        </div>
+    </div>
+
+    <!-- Particle Background -->
+    <div class="particles-container"></div>
+
+    <div class="container">
+        <div class="cards-grid">
+            <!-- Hello Stranger Card -->
+            <div class="card card-large card-hello">
+                <div class="mascot-container">
+                    <div class="cipher-mascot">
+                        <div class="cipher-head">
+                            <div class="cipher-eyes">
+                                <div class="cipher-eye left"></div>
+                                <div class="cipher-eye right"></div>
+                            </div>
+                            <div class="cipher-hair"></div>
+                            <div class="cipher-glasses"></div>
+                        </div>
+                        <div class="cipher-body">
+                            <div class="cipher-hoodie">
+                                <div class="circuit-pattern"></div>
+                            </div>
+                            <div class="cipher-arm left-arm">
+                                <div class="cipher-glove"></div>
+                            </div>
+                            <div class="cipher-arm right-arm">
+                                <div class="cipher-glove"></div>
+                            </div>
+                        </div>
+                        <div class="holographic-code">
+                            <span>&lt;</span>
+                            <span>/</span>
+                            <span>&gt;</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h2 class="hello-text">Hello<br>Stranger.</h2>
+                    <p class="terminal-text">let stranger = user.current(); > The terminal is open. Type nothing. Just explore._</p>
+                </div>
+                <div class="card-decoration"></div>
+            </div>
+
+            <!-- Design Time Spent Card -->
+            <div class="card card-hours">
+                <div class="card-header">
+                    <span class="card-icon">⏱</span>
+                    <span>DESIGN TIME SPENT</span>
+                </div>
+                <div class="hours-display">
+                    <svg class="circular-chart" viewBox="0 0 200 200">
+                        <circle class="circle-bg" cx="100" cy="100" r="90"></circle>
+                        <circle class="circle-fill" cx="100" cy="100" r="90" style="stroke-dashoffset: 100;"></circle>
+                        <circle class="circle-dot" cx="100" cy="20" r="8"></circle>
+                    </svg>
+                    <div class="hours-text">
+                        <p class="hours-number">14,238</p>
+                        <p class="hours-label">Hours</p>
+                    </div>
+                </div>
+                <div class="timeline-info">
+                    <div class="timeline-item">
+                        <p class="timeline-city">BOSTON</p>
+                        <p class="timeline-coords">42.3601° N 71.0589° W</p>
+                    </div>
+                    <div class="timeline-separator">2020</div>
+                    <div class="timeline-item">
+                        <p class="timeline-city">SAN FRANCISCO</p>
+                        <p class="timeline-coords">37.7749° N 122.4194° W</p>
+                    </div>
+                    <div class="timeline-separator">2025</div>
+                </div>
+            </div>
+
+            <!-- Skills Matrix Card -->
+            <div class="card card-skills">
+                <div class="card-header">
+                    <span class="card-icon">📊</span>
+                    <span>DESIGN SKILL MATRIX</span>
+                </div>
+                <div class="skills-content">
+                    <div class="skills-left">
+                        <div class="skill-row">
+                            <span class="skill-label">Platform Design</span>
+                            <span class="skill-score">0</span>
+                        </div>
+                        <div class="skill-row">
+                            <span class="skill-label">Website Design</span>
+                            <span class="skill-score">0</span>
+                        </div>
+                        <div class="skill-row">
+                            <span class="skill-label">UI UX Design</span>
+                            <span class="skill-score">0</span>
+                        </div>
+                        <div class="skill-row">
+                            <span class="skill-label">Interaction Design</span>
+                            <span class="skill-score">0</span>
+                        </div>
+                        <div class="skill-row">
+                            <span class="skill-label">Design System</span>
+                            <span class="skill-score">0</span>
+                        </div>
+                        <div class="skill-row">
+                            <span class="skill-label">User Research</span>
+                            <span class="skill-score">0</span>
+                        </div>
+                        <div class="skill-row">
+                            <span class="skill-label">Usability Testing</span>
+                            <span class="skill-score">0</span>
+                        </div>
+                        <div class="skill-row">
+                            <span class="skill-label">Front-end Development</span>
+                            <span class="skill-score">0</span>
+                        </div>
+                        <div class="skill-row">
+                            <span class="skill-label">Prototyping</span>
+                            <span class="skill-score">0</span>
+                        </div>
+                        <div class="skill-row">
+                            <span class="skill-label">Data Visualization</span>
+                            <span class="skill-score">0</span>
+                        </div>
+                        <div class="skill-row">
+                            <span class="skill-label">Visual Design</span>
+                            <span class="skill-score">0</span>
+                        </div>
+                    </div>
+                    <div class="skills-right">
+                        <div class="tools-label">TOOL</div>
+                        <div class="tool-item">Figma</div>
+                        <div class="tool-item">ProtoPie</div>
+                        <div class="tool-item">Framer</div>
+                        <div class="tool-item">JavaScript</div>
+                        <div class="tool-item">jQuery</div>
+                        <div class="tool-item">HTML</div>
+                        <div class="tool-item">CSS</div>
+                        <div class="tool-item">Adobe CC</div>
+                    </div>
+                </div>
+                <div class="skills-chart">
+                    <div class="color-bar" style="background: linear-gradient(90deg, #FF0080, #00FF00, #00FFFF, #FFD700);"></div>
+                    <p class="chart-comment">// skill scores are self-assessed (total = 100)<br>// always iterating, always improving</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="bottom-grid">
+            <!-- Hobbies Showcase -->
+            <div class="card card-hobbies">
+                <div class="hobbies-header">
+                    <h3>🎨 MY HOBBIES</h3>
+                </div>
+                <div class="hobbies-grid">
+                    <!-- Music Headphones -->
+                    <div class="hobby-item hobby-music">
+                        <div class="hobby-icon">🎧</div>
+                        <h4>Music</h4>
+                        <div class="hobby-details">Listening & Production</div>
+                        <div class="music-wave">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+
+                    <!-- Books -->
+                    <div class="hobby-item hobby-books">
+                        <div class="hobby-icon">📚</div>
+                        <h4>Reading</h4>
+                        <div class="hobby-details">Design & Tech Books</div>
+                        <div class="book-stack">
+                            <div class="book"></div>
+                            <div class="book"></div>
+                            <div class="book"></div>
+                        </div>
+                    </div>
+
+                    <!-- Gaming -->
+                    <div class="hobby-item hobby-gaming">
+                        <div class="hobby-icon">🎮</div>
+                        <h4>Gaming</h4>
+                        <div class="hobby-details">Competitive & Casual</div>
+                        <div class="game-controller">
+                            <div class="button-group">
+                                <span class="btn-x">X</span>
+                                <span class="btn-o">O</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Drawing/Design -->
+                    <div class="hobby-item hobby-drawing">
+                        <div class="hobby-icon">✏️</div>
+                        <h4>Drawing</h4>
+                        <div class="hobby-details">Digital & Traditional</div>
+                        <div class="pencil-icon">
+                            <span></span>
+                        </div>
+                    </div>
+
+                    <!-- Photography -->
+                    <div class="hobby-item hobby-photo">
+                        <div class="hobby-icon">📷</div>
+                        <h4>Photography</h4>
+                        <div class="hobby-details">Capturing Moments</div>
+                        <div class="camera-shutter">
+                            <span></span>
+                        </div>
+                    </div>
+
+                    <!-- Coding -->
+                    <div class="hobby-item hobby-coding">
+                        <div class="hobby-icon">💻</div>
+                        <h4>Coding</h4>
+                        <div class="hobby-details">Creative & Problem Solving</div>
+                        <div class="code-text">
+                            <span>&lt;/&gt;</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Experience Map -->
+            <div class="card card-experience">
+                <div class="card-header">
+                    <span class="card-icon">🌍</span>
+                    <span>MY EXPERIENCE</span>
+                </div>
+                <div class="map-container">
+                    <svg class="world-map" viewBox="0 0 960 600">
+                        <g class="map-group">
+                            <!-- Simplified world map outline -->
+                            <path d="M 100,150 L 200,100 L 250,120 L 280,200 L 250,250 L 150,240 Z" fill="none" stroke="#333" stroke-width="1"/>
+                        </g>
+                        <circle class="location-pin" cx="150" cy="200" r="6"></circle>
+                        <circle class="location-pin" cx="280" cy="180" r="6"></circle>
+                        <circle class="location-pin" cx="320" cy="240" r="6"></circle>
+                    </svg>
+                    <div class="experience-locations">
+                        <div class="exp-coord">42.3601° N, 71.0589° W</div>
+                        <div class="exp-coord">40.7128° N, 74.0060° W</div>
+                        <div class="exp-coord">37.7749° N, 122.4194° W</div>
+                        <div class="exp-coord">31.2989° N, 120.5853° E</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-text">
+                <p>© 2025 Your Name. All rights reserved.</p>
+                <p class="terminal-comment">// Always learning, always improving 🚀</p>
+            </div>
+            <div class="social-links">
+                <a href="#" class="social-icon" title="GitHub" data-icon="💻">
+                    <span>GitHub</span>
+                </a>
+                <a href="#" class="social-icon" title="LinkedIn" data-icon="💼">
+                    <span>LinkedIn</span>
+                </a>
+                <a href="#" class="social-icon" title="Twitter" data-icon="🐦">
+                    <span>Twitter</span>
+                </a>
+                <a href="#" class="social-icon" title="Email" data-icon="📧">
+                    <span>Email</span>
+                </a>
+                <a href="#" class="social-icon" title="Discord" data-icon="🎮">
+                    <span>Discord</span>
+                </a>
+            </div>
+        </div>
+        <div class="back-to-top" title="Back to top (Press Home)">
+            <span>↑</span>
+        </div>
+    </footer>
+</body>
+</html>
