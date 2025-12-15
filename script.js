@@ -65,40 +65,55 @@ document.addEventListener('keydown', (e) => {
     }
 });
 
-// ========== CIPHER CHAT RESPONSES ==========
-const responses = [
-    "Hey there! 👋",
-    "What's up? 🚀",
-    "Loving the vibes! ✨",
-    "Feel free to explore! 🔍",
-    "Check out my hobbies! 🎨",
-    "Cool right? 😎",
-    "Always learning! 📚",
-    "Building the future! 💡",
-    "Welcome to my world! 🌍",
-    "Any questions? Ask away! 💬",
-];
-
-chatInput.addEventListener('keypress', (e) => {
+// ========== CIPHER CHAT (backend integration) ==========
+chatInput.addEventListener('keypress', async (e) => {
     if (e.key === 'Enter' && chatInput.value.trim()) {
-        const userMessage = chatInput.value;
-        
-        // Add user message
+        e.preventDefault();
+        const userMessage = chatInput.value.trim();
+
+        // Add user message to UI
         const userMsg = document.createElement('div');
         userMsg.className = 'message user-message';
         userMsg.textContent = userMessage;
-        document.querySelector('.chat-messages').appendChild(userMsg);
-        
-        // Simulate Cipher thinking
+        const chatMessages = document.querySelector('.chat-messages');
+        chatMessages.appendChild(userMsg);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+
+        // Add placeholder for Cipher reply
+        const cipherMsg = document.createElement('div');
+        cipherMsg.className = 'message cipher-message loading';
+        cipherMsg.textContent = 'Typing...';
+        chatMessages.appendChild(cipherMsg);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+
         chatInput.value = '';
-        setTimeout(() => {
-            const response = responses[Math.floor(Math.random() * responses.length)];
-            const cipherMsg = document.createElement('div');
-            cipherMsg.className = 'message cipher-message';
-            cipherMsg.textContent = response;
-            document.querySelector('.chat-messages').appendChild(cipherMsg);
-            document.querySelector('.chat-messages').scrollTop = document.querySelector('.chat-messages').scrollHeight;
-        }, 500);
+
+        try {
+            const resp = await fetch('/api/chat', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ message: userMessage })
+            });
+
+            if (!resp.ok) {
+                const err = await resp.json().catch(() => ({}));
+                cipherMsg.textContent = 'Error: ' + (err.error || resp.statusText || 'Request failed');
+                cipherMsg.classList.remove('loading');
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+                return;
+            }
+
+            const data = await resp.json();
+            const reply = data.reply || '[no reply]';
+            // Replace placeholder with actual reply
+            cipherMsg.textContent = reply;
+            cipherMsg.classList.remove('loading');
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        } catch (error) {
+            cipherMsg.textContent = 'Network error: ' + (error.message || error);
+            cipherMsg.classList.remove('loading');
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
     }
 });
 
